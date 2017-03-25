@@ -1,4 +1,5 @@
 rootProject.name = 'ajcf'
 include 'ajcf-common'
 include 'ajcf-discord4j'
+include 'ajcf-javacord'
 

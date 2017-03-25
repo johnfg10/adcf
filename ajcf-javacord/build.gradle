@@ -1,5 +1,5 @@
 group 'io.github.johnfg10'
-version '1.0-SNAPSHOT'
+version '1.0.0'
 
 apply plugin: 'java'
 
@@ -7,9 +7,8 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
-    jcenter() //This prevents issues with transitive dependencies
     maven {
-        url  "https://jitpack.io"
+        url 'http://repo.bastian-oppermann.de'
     }
 }
 
@@ -18,7 +17,7 @@ configurations {
 }
 
 dependencies {
-    compile "com.github.austinv11:Discord4j:2.7.0"
+    compile 'de.btobastian.javacord:javacord:2.0.14'
     compileRuntime project(':ajcf-common')
     configurations.compile.extendsFrom(configurations.compileRuntime)
 }

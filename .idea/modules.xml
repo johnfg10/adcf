@@ -9,6 +9,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ajcf-discord4j/ajcf-discord4j.iml" filepath="$PROJECT_DIR$/.idea/modules/ajcf-discord4j/ajcf-discord4j.iml" group="ajcf-discord4j" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ajcf-discord4j/ajcf-discord4j_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ajcf-discord4j/ajcf-discord4j_main.iml" group="ajcf-discord4j" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ajcf-discord4j/ajcf-discord4j_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ajcf-discord4j/ajcf-discord4j_test.iml" group="ajcf-discord4j" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ajcf-javacord/ajcf-javacord.iml" filepath="$PROJECT_DIR$/.idea/modules/ajcf-javacord/ajcf-javacord.iml" group="ajcf-javacord" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ajcf-javacord/ajcf-javacord_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ajcf-javacord/ajcf-javacord_main.iml" group="ajcf-javacord" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ajcf-javacord/ajcf-javacord_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ajcf-javacord/ajcf-javacord_test.iml" group="ajcf-javacord" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ajcf_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ajcf_main.iml" group="ajcf" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ajcf_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ajcf_test.iml" group="ajcf" />
     </modules>
