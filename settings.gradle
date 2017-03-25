@@ -1,2 +1,4 @@
-rootProject.name = 'adcf'
+rootProject.name = 'ajcf'
+include 'ajcf-common'
+include 'ajcf-discord4j'
 

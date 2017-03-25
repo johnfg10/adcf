@@ -40,6 +40,10 @@ public class adcfUser {
         this.username = username;
     }
 
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
     @Override
     public int hashCode() {
         int intNumber;

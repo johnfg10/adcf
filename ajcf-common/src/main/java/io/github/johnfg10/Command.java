@@ -10,9 +10,9 @@ package io.github.johnfg10;
 public @interface Command {
     String[] aliases();
 
-    String usage();
+    String usage() default "";
 
-    String[] requiredPermmisions();
+    String[] requiredPermmisions() default "none";
 
     boolean async() default false;
 
