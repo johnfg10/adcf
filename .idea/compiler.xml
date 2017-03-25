@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="ajcf-common_main" target="1.8" />
+      <module name="ajcf-common_test" target="1.8" />
+      <module name="ajcf-discord4j_main" target="1.8" />
+      <module name="ajcf-discord4j_test" target="1.8" />
+      <module name="ajcf_main" target="1.8" />
+      <module name="ajcf_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
