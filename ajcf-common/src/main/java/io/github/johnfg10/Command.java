@@ -12,6 +12,8 @@ public @interface Command {
 
     String usage() default "";
 
+    String description();
+
     String[] requiredPermmisions() default "none";
 
     boolean async() default false;

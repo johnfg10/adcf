@@ -14,7 +14,7 @@ public class CommandBase {
     private List<String> aliases = new ArrayList<>();
     private List<String> permissionsRequired = new ArrayList<>();
 
-    protected CommandBase(Command annotation, Method method, CommandExecutor executor) {
+    public CommandBase(Command annotation, Method method, CommandExecutor executor) {
         this.annotation = annotation;
         this.method = method;
         this.executor = executor;
@@ -39,9 +39,4 @@ public class CommandBase {
     public void addAlias(String alias) {
         aliases.add(alias);
     }
-
-    public void removeAlias(String alias) {
-        aliases.remove(alias);
-    }
-
 }
