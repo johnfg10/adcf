@@ -3,25 +3,22 @@ package io.github.johnfg10.Listeners;
 import io.github.johnfg10.CommandBase;
 import io.github.johnfg10.CommandHandler;
 import io.github.johnfg10.Discord4JHandler;
-import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.events.IListener;
-import sx.blah.discord.handle.impl.events.MessageReceivedEvent;
-import sx.blah.discord.handle.obj.IChannel;
-import sx.blah.discord.handle.obj.IGuild;
-import sx.blah.discord.handle.obj.IMessage;
-import sx.blah.discord.handle.obj.IUser;
+import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedEvent;
 import sx.blah.discord.util.DiscordException;
 import sx.blah.discord.util.MissingPermissionsException;
 import sx.blah.discord.util.RateLimitException;
 
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Parameter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeMap;
 
 /**
  * Created by johnfg10 on 24/03/2017.
  */
-public class MessageListener implements IListener<MessageReceivedEvent> {
+public class onMessageEvent implements IListener<MessageReceivedEvent> {
 
     @Override
     public void handle(MessageReceivedEvent event) {
@@ -37,46 +34,42 @@ public class MessageListener implements IListener<MessageReceivedEvent> {
                 String msg = messageRaw.replaceFirst(str, "");
                 String[] args = msg.split(" ");
                 CommandBase command = commands.get(str);
+                if (event.getChannel().isPrivate()){
 
-                try {
-                    reply.add(command.getMethod().invoke(command.getExecutor(),
-                            Discord4JHandler.getSelfReference().getParameters(
-                                    str,
-                                    msg,
-                                    args,
-                                    command,
-                                    event.getMessage()
-                            )));
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();
+                }else {
+
                 }
-            }
-        }
-
-
-/*        for (CommandBase commandBase:commands) {
-*//*            for (String alias:commandBase.getAliases()) {
-                if (messageRaw.startsWith(alias)){
-                    String msg = messageRaw.replaceFirst(alias, "");
-                    String[] args = msg.split(" ");
+                if (command.getCommandAnnotation().channelMessage() && command.getCommandAnnotation().privateMessage()){
                     try {
-                        reply.add(commandBase.getMethod().invoke(commandBase.getExecutor(),
-                                Discord4JHandler.selfReference.getParameters(
-                                        alias,
+                        reply.add(command.getMethod().invoke(command.getExecutor(),
+                                Discord4JHandler.getSelfReference().getParameters(
+                                        str,
                                         msg,
                                         args,
-                                        commandBase,
+                                        command,
                                         event.getMessage()
                                 )));
-
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }else if (!command.getCommandAnnotation().channelMessage() && command.getCommandAnnotation().channelMessage()){
+                    try {
+                        reply.add(command.getMethod().invoke(command.getExecutor(),
+                                Discord4JHandler.getSelfReference().getParameters(
+                                        str,
+                                        msg,
+                                        args,
+                                        command,
+                                        event.getMessage()
+                                )));
                     } catch (IllegalAccessException | InvocationTargetException e) {
                         e.printStackTrace();
                     }
                 }
-            }*//*
-        }*/
+
+            }
+        }
+
 
         if (!reply.isEmpty()){
             for (Object obj:reply) {

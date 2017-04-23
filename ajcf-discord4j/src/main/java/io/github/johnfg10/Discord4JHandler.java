@@ -1,18 +1,17 @@
 package io.github.johnfg10;
 
-import io.github.johnfg10.Listeners.MessageListener;
+import io.github.johnfg10.Listeners.onMentionEvent;
+import io.github.johnfg10.Listeners.onMessageEvent;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.handle.obj.IGuild;
 import sx.blah.discord.handle.obj.IMessage;
 import sx.blah.discord.handle.obj.IUser;
 
-import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 import java.util.TreeMap;
 
 /**
@@ -24,8 +23,8 @@ public class Discord4JHandler extends CommandHandler {
 
     public Discord4JHandler(IDiscordClient discordClient) {
         selfReference = this;
-        MessageListener messageListener = new MessageListener();
-        discordClient.getDispatcher().registerListener(messageListener);
+        discordClient.getDispatcher().registerListener(new onMessageEvent());
+        discordClient.getDispatcher().registerListener(new onMentionEvent());
     }
 
     public Object[] getParameters(String command, String message,String[] splitArgs, CommandBase commandBase, IMessage iMessage) {

@@ -18,7 +18,7 @@ configurations {
 }
 
 dependencies {
-    compile "com.github.austinv11:Discord4j:2.7.0"
+    compile "com.github.austinv11:Discord4j:2.8.0"
     compileRuntime project(':ajcf-common')
     configurations.compile.extendsFrom(configurations.compileRuntime)
 }
